@@ -15,11 +15,9 @@
 <body>
     <h1>Informācijas daudzuma mērvienības</h1>
     <form>
-        <p>GB = <input type="text" id="gb"></p>
-        <p>Izteikt megabaitos: <input type="text" id="mb"></p>
-        <p>Izteikt mebibaitos: <input type="text" id="mib"></p>
-        <button type="button" onclick="convertToMB()">Pārveidot uz MB</button>
-        <button type="button" onclick="convertToMiB()">Pārveidot uz MiB</button>
+        <p><input type="text" id="gb">GB=</p>
+        <p><button type="button" onclick="convertToMB()">Pārveidot uz MB</button><input type="text" id="mb">MB</p>
+        <p><button type="button" onclick="convertToMiB()">Pārveidot uz MiB</button><input type="text" id="mib">MiB</p>
     </form>
     <script>
         function convertToMB() {
