@@ -1,65 +1,37 @@
 <!DOCTYPE html>
-<html lang="lv">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informācijas daudzuma mērvienības</title>
     <style>
         body {
-            background-image: url("cipari.jpg");
-            background-size: cover;
-            font-family: Arial, sans-serif;
+            background-image: url('klases/cipari.jpg');
         }
         form {
-            background-color: rgba(220, 220, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            margin: 0 auto;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #f39c12;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
+            font-size: 20px;
+            background-color: rgb(220, 220, 0);
         }
     </style>
 </head>
 <body>
     <h1>Informācijas daudzuma mērvienības</h1>
     <form>
-        <p>
-            <label for="gbInput">2 GB =</label>
-            <input type="text" id="gbInput">
-        </p>
-        <p>
-            Izteikt megabaitos
-            <input type="text" id="mbInput">
-        </p>
-        <p>
-            Izteikt mibibaitos
-            <input type="text" id="mibInput">
-        </p>
-        <button onclick="calculate()">Aprēķināt</button>
+        <p>2 GB = <input type="text" id="gb"></p>
+        <p>Izteikt megabaitos: <input type="text" id="mb"></p>
+        <p>Izteikt mebibaitos: <input type="text" id="mib"></p>
+        <button type="button" onclick="convertToMB()">Pārveidot uz MB</button>
+        <button type="button" onclick="convertToMiB()">Pārveidot uz MiB</button>
     </form>
-
     <script>
-        function calculate() {
-            const gbValue = parseFloat(document.getElementById("gbInput").value);
-            const mbValue = gbValue * 1024;
-            const mibValue = gbValue * 8192;
+        function convertToMB() {
+            var gb = document.getElementById('gb').value;
+            var mb = gb * 1000;
+            document.getElementById('mb').value = mb;
+        }
 
-            document.getElementById("mbInput").value = mbValue.toFixed(2) + " MB";
-            document.getElementById("mibInput").value = mibValue.toFixed(2) + " MiB";
+        function convertToMiB() {
+            var gb = document.getElementById('gb').value;
+            var mib = gb * 1024;
+            document.getElementById('mib').value = mib;
         }
     </script>
 </body>
