@@ -5,52 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informācijas daudzuma mērvienības</title>
     <style>
-        /* Stila apraksts */
         body {
             background-image: url("cipari.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
         }
         form {
-            font-size: 20px;
-            background-color: rgba(220, 220, 0, 1); /* Krāsa, kas iejaukta no 220 vienībām sarkanās un 220 vienībām zaļās krāsas */
+            background-color: rgba(220, 220, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 0 auto;
         }
-        input[type="text"][readonly] {
-            background-color: #f0f0f0; /* Read-only input field color */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #f39c12;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <h1>Informācijas daudzuma mērvienības</h1>
     <form>
-        <!-- Ievadlauks gigabaitos -->
         <p>
-            <label for="inputGB">Ievadiet gigabaitos:</label>
-            <input type="text" id="inputGB" name="inputGB" oninput="convertToMB()">
+            <label for="gbInput">2 GB =</label>
+            <input type="text" id="gbInput">
         </p>
-        <!-- Ievadlauks megabaitos (read-only) -->
         <p>
-            <label for="inputMB">Megabaiti (MB):</label>
-            <input type="text" id="inputMB" name="inputMB" readonly>
-            <button onclick="convertToMB()">Aprēķini</button>
+            Izteikt megabaitos
+            <input type="text" id="mbInput">
         </p>
-        <!-- Ievadlauks mebibaitos (read-only) -->
         <p>
-            <label for="inputMiB">Mebibaiti (MiB):</label>
-            <input type="text" id="inputMiB" name="inputMiB" readonly>
-            <button onclick="convertToMiB()">Aprēķini</button>
+            Izteikt mibibaitos
+            <input type="text" id="mibInput">
         </p>
+        <button onclick="calculate()">Aprēķināt</button>
     </form>
 
     <script>
-        function convertToMB() {
-            const inputGB = parseFloat(document.getElementById("inputGB").value);
-            const mbValue = inputGB * 1024; // Convert GB to MB
-            document.getElementById("inputMB").value = mbValue.toFixed(2);
-        }
+        function calculate() {
+            const gbValue = parseFloat(document.getElementById("gbInput").value);
+            const mbValue = gbValue * 1024;
+            const mibValue = gbValue * 8192;
 
-        function convertToMiB() {
-            const inputGB = parseFloat(document.getElementById("inputGB").value);
-            const mibValue = inputGB * 1000; // Convert GB to MiB
-            document.getElementById("inputMiB").value = mibValue.toFixed(2);
+            document.getElementById("mbInput").value = mbValue.toFixed(2) + " MB";
+            document.getElementById("mibInput").value = mibValue.toFixed(2) + " MiB";
         }
     </script>
 </body>
