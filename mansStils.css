@@ -4,17 +4,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('fona_attels.jpg'); /* Aizstāj 'fona_attels.jpg' ar reālu attēla nosaukumu */
+    background-image: url('fona_attels.jpg'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Fiksē attēlu, lai tas nepārvietojas, tekot lapas augšup un lejup */
-    color: #ffffff; /* Teksta krāsa - balta */
+    background-attachment: fixed; 
+    color: #ffffff; 
     font-size: 25px
 }
 
 header {
-    background-color: #333; /* Fona krāsa galvenē - tumša pelēka */
-    color: #c49352; /* Teksta krāsa galvenē - balta */
+    background-color: #333; 
+    color: #c49352; 
     padding: 10px;
     text-align: center;
     font-size: 55px
