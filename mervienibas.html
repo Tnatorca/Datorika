@@ -13,38 +13,44 @@
             font-size: 20px;
             background-color: rgba(220, 220, 0, 1); /* Krāsa, kas iejaukta no 220 vienībām sarkanās un 220 vienībām zaļās krāsas */
         }
+        input[type="text"][readonly] {
+            background-color: #f0f0f0; /* Read-only input field color */
+        }
     </style>
 </head>
 <body>
     <h1>Informācijas daudzuma mērvienības</h1>
     <form>
-        <!-- Trīs rindkopas ar teksta ievadlaukiem -->
+        <!-- Ievadlauks gigabaitos -->
         <p>
-            <input type="text" id="input1" name="input1">
-            <label for="input1">GB=</label>
+            <label for="inputGB">Ievadiet gigabaitos:</label>
+            <input type="text" id="inputGB" name="inputGB" oninput="convertToMB()">
         </p>
+        <!-- Ievadlauks megabaitos (read-only) -->
         <p>
-            <label for="input2">Ievadiet skaitli 2:</label>
-            <input type="text" id="input2" name="input2">
+            <label for="inputMB">Megabaiti (MB):</label>
+            <input type="text" id="inputMB" name="inputMB" readonly>
+            <button onclick="convertToMB()">Aprēķini</button>
         </p>
+        <!-- Ievadlauks mebibaitos (read-only) -->
         <p>
-            <label for="input3">Ievadiet skaitli 3:</label>
-            <input type="text" id="input3" name="input3">
+            <label for="inputMiB">Mebibaiti (MiB):</label>
+            <input type="text" id="inputMiB" name="inputMiB" readonly>
+            <button onclick="convertToMiB()">Aprēķini</button>
         </p>
-        <!-- Pogas ar reakciju uz klikšķi -->
-        <button onclick="calculate()">Aprēķināt</button>
     </form>
 
-    <!-- JavaScript funkcija, kas parāda rezultātus ievadlaukos -->
     <script>
-        function calculate() {
-            const input1 = parseFloat(document.getElementById("input1").value);
-            const input2 = parseFloat(document.getElementById("input2").value);
-            const input3 = parseFloat(document.getElementById("input3").value);
+        function convertToMB() {
+            const inputGB = parseFloat(document.getElementById("inputGB").value);
+            const mbValue = inputGB * 1024; // Convert GB to MB
+            document.getElementById("inputMB").value = mbValue.toFixed(2);
+        }
 
-            // Aprēķini vai citi darbi ar ievadlauku vērtībām
-            // Piemēram, šeit varētu būt konversijas no vienas mērvienības uz citu.
-            // Iegūtos rezultātus varētu ievietot atpakaļ ievadlaukos.
+        function convertToMiB() {
+            const inputGB = parseFloat(document.getElementById("inputGB").value);
+            const mibValue = inputGB * 1000; // Convert GB to MiB
+            document.getElementById("inputMiB").value = mibValue.toFixed(2);
         }
     </script>
 </body>
