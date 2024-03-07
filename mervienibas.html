@@ -4,7 +4,7 @@
     <title>Informācijas daudzuma mērvienības</title>
     <style>
         body {
-            background-image: url('klases/cipari.jpg');
+            background-image: url('cipari.jpg');
         }
         form {
             font-size: 20px;
@@ -15,7 +15,7 @@
 <body>
     <h1>Informācijas daudzuma mērvienības</h1>
     <form>
-        <p>2 GB = <input type="text" id="gb"></p>
+        <p>GB = <input type="text" id="gb"></p>
         <p>Izteikt megabaitos: <input type="text" id="mb"></p>
         <p>Izteikt mebibaitos: <input type="text" id="mib"></p>
         <button type="button" onclick="convertToMB()">Pārveidot uz MB</button>
@@ -30,7 +30,7 @@
 
         function convertToMiB() {
             var gb = document.getElementById('gb').value;
-            var mib = gb * 1024;
+            var mib = gb * 7629;
             document.getElementById('mib').value = mib;
         }
     </script>
